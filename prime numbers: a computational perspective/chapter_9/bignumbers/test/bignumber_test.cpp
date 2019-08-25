@@ -5,8 +5,11 @@ using namespace std;
 
 
 int main() {	
-	Decimal d = 32;
-	cout << (d*d).prettify() << endl;
+	Decimal d = 123456789;
+	d = d*d;
+	d = d*d;
+	d = d*d;
+	cout << d*d << endl;
 	
 	return 0;
 }

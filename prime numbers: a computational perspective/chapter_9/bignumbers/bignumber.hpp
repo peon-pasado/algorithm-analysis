@@ -35,6 +35,11 @@ public:
 		return res;
 	}
 
+	friend ostream& operator << (ostream& out, Bignumber number) {
+		out << number.prettify();
+		return out;
+	}
+
 	string prettify() {
 		int n = (*this).size();
 		string res = "";
