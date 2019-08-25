@@ -1,10 +1,8 @@
 ## fast algorithms for large integer arithmetic
 
-.
-├── bignumbers
-├── polynomials
-│   ├── polynomial.hpp
-│   └── test
-│       ├── a.out
-│       └── polynomial_test.cpp
-└── README.md
+[bignumbers][1]
+[polynomials][2]
+
+
+[1]: /bignumbers
+[2]: /polynomials
