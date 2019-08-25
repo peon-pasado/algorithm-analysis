@@ -5,7 +5,7 @@ using namespace std;
 
 
 int main() {	
-	Decimal d = {2, 3};
+	Decimal d = 32;
 	cout << (d*d).prettify() << endl;
 	
 	return 0;

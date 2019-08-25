@@ -8,6 +8,16 @@ public:
 	using Polynomial<int>::Polynomial;	
 
 	Bignumber(const Polynomial& other): Polynomial(other) {}
+	Bignumber(int number) {
+		if (number == 0) {
+			(*this).push_back(0);
+		} else {
+			while (number > 0) {
+				(*this).push_back(number%10);
+				number /= 10;
+			}
+		}
+	}
 
 	Bignumber operator *(const Bignumber& other) const {
 		Bignumber res = (*this).Polynomial<int>::operator*(other);		
