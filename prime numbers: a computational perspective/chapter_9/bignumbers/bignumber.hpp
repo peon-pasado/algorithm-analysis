@@ -2,6 +2,7 @@
 #define BIGNUMBER_HPP
 #include "../polynomials/polynomial.hpp"
 
+template<size_t base>
 class Bignumber : public Polynomial<int> {
 public:
 	using Polynomial<int>::Polynomial;	
@@ -14,12 +15,12 @@ public:
 		int carry = 0;
 		for (int i = 0; i < n; ++i) {
 			res[i] += carry;
-			carry = res[i] / 10;
-			res[i] %= 10;
+			carry = res[i] / base;
+			res[i] %= base;
 		}
 		while (carry > 0) {
-			res.push_back(carry % 10);
-			carry /= 10;
+			res.push_back(carry % base);
+			carry /= base;
 		}
 		return res;
 	}
@@ -33,5 +34,7 @@ public:
 		return res;
 	}
 };
+
+typedef Bignumber<10> Decimal;
 
 #endif

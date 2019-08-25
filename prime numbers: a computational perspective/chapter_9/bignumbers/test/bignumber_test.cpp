@@ -5,7 +5,7 @@ using namespace std;
 
 
 int main() {	
-	Bignumber d = {2, 3};
+	Decimal d = {2, 3};
 	cout << (d*d).prettify() << endl;
 	
 	return 0;
