@@ -74,10 +74,15 @@ public:
 		return res;
 	}
 
+	Binary operator <<(size_t k) {
+		if ((*this).empty()) return Binary(0);
+		Binary res = *this;
+		while (k--) res.push_front(0);
+		return res;
+	}
 	
 	//Bignumber<10> to_decimal() {	
 	//}
 };
-
 
 #endif

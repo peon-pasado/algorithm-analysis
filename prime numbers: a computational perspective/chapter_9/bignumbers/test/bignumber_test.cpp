@@ -12,7 +12,7 @@ int main() {
 	//cout << d*d << endl;
 
 	Binary b = 10;
-	cout << b << " " << (b>>1) << endl;
+	cout << b << " " << ((b>>1)<<300) << endl;
 	
 	return 0;
 }
