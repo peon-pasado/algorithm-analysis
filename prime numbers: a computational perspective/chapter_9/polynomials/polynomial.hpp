@@ -1,13 +1,13 @@
 #ifndef POLYNOMIAL_HPP
 #define POLYNOMIAL_HPP
-#include <vector>
+#include <queue>
 #include <string>
 using namespace std;
 
 template<class T>
-class Polynomial : public vector<T> {
+class Polynomial : public deque<T> {
 public:
-	using vector<T>::vector; 	
+	using deque<T>::deque; 	
 
 	Polynomial operator +(const Polynomial& other) const {
 		int n = this->size(), m = other.size();

@@ -9,7 +9,10 @@ int main() {
 	d = d*d;
 	d = d*d;
 	d = d*d;
-	cout << d*d << endl;
+	//cout << d*d << endl;
+
+	Binary b = 10;
+	cout << b << " " << (b>>1) << endl;
 	
 	return 0;
 }

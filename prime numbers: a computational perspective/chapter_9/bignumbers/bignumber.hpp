@@ -13,8 +13,8 @@ public:
 			(*this).push_back(0);
 		} else {
 			while (number > 0) {
-				(*this).push_back(number%10);
-				number /= 10;
+				(*this).push_back(number%base);
+				number /= base;
 			}
 		}
 	}
@@ -35,12 +35,18 @@ public:
 		return res;
 	}
 
-	friend ostream& operator << (ostream& out, Bignumber number) {
-		out << number.prettify();
-		return out;
+	bool operator <(const Bignumber& other) const {
+		int n = this->size(), m = other.size();
+		if (n < m) return true;
+		if (n > m) return false;
+		for (int i = 0; i < n; ++i) {
+			if ((*this)[i] < other[i]) return true;
+			if (other[i] < (*this)[i]) return false;
+		}
+		return false;
 	}
 
-	string prettify() {
+	string prettify() const {
 		int n = (*this).size();
 		string res = "";
 		for (int i = n-1; i >= 0; --i) {
@@ -48,8 +54,30 @@ public:
 		}
 		return res;
 	}
+
+	friend ostream& operator <<(ostream& out, const Bignumber& number) {
+		out << number.prettify();
+		return out;
+	}
 };
 
 typedef Bignumber<10> Decimal;
+
+class Binary : public Bignumber<2> {
+public:
+	using Bignumber<2>::Bignumber;
+	
+	Binary operator >>(size_t k) {
+		if (k >= (*this).size()) return Binary(0);
+		Binary res = *this;
+		while (k--) res.pop_front();
+		return res;
+	}
+
+	
+	//Bignumber<10> to_decimal() {	
+	//}
+};
+
 
 #endif
